@@ -11,6 +11,7 @@ passlib==1.7.4
 pbr==5.6.0
 peewee==3.14.4
 psycopg2==2.8.6
+psycopg2-binary==2.8.6
 six==1.15.0
 stevedore==3.3.0
 touch==2020.12.3
