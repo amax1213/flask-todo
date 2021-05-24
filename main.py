@@ -56,5 +56,5 @@ def incomplete_tasks():
     return render_template('incomplete.jinja2', tasks=Task.select().where(Task.performed.is_null()))
 
 if __name__ == "__main__":
- port = int(os.environ.get("PORT", 5000))
- app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
