@@ -3,7 +3,7 @@ import os
 
 from playhouse.db_url import connect
 
-db = connect()
+db = connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
 
 
 class User(Model):
