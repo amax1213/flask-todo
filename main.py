@@ -7,8 +7,9 @@ from passlib.hash import pbkdf2_sha256
 from model import Task, User
 
 app = Flask(__name__)
-app.secret_key = b'\x9d\xb1u\x08%\xe0\xd0p\x9bEL\xf8JC\xa3\xf4J(hAh\xa4\xcdw\x12S*,u\xec\xb8\xb8'
-app.secret_key = os.environ.get('SECRET_KEY').encode()
+# app.secret_key = b'\x9d\xb1u\x08%\xe0\xd0p\x9bEL\xf8JC\xa3\xf4J(hAh\xa4\xcdw\x12S*,u\xec\xb8\xb8'
+# app.secret_key = os.environ.get('SECRET_KEY').encode()
+app.secret_key = os.environ.get('FLASK_SESSION_KEY', os.urandom(24).hex())
 
 @app.route('/all')
 def all_tasks():
@@ -56,5 +57,5 @@ def incomplete_tasks():
     return render_template('incomplete.jinja2', tasks=Task.select().where(Task.performed.is_null()))
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+ port = int(os.environ.get("PORT", 5000))
+ app.run(host='0.0.0.0', port=port)
