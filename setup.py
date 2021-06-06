@@ -1,10 +1,11 @@
+import os
 from passlib.hash import pbkdf2_sha256
 from datetime import datetime
 from model import db, User, Task
 
 
 # Create the database tables for our model
-db.connect()
+db.connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
 db.drop_tables([User, Task])
 db.create_tables([User, Task])
 
