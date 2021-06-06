@@ -1,7 +1,7 @@
-import os
 from passlib.hash import pbkdf2_sha256
 from datetime import datetime
 from model import db, User, Task
+import os
 
 
 # Create the database tables for our model
