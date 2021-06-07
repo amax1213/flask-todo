@@ -5,7 +5,7 @@ import os
 
 
 # Create the database tables for our model
-db.connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
+db.connect()
 db.drop_tables([User, Task])
 db.create_tables([User, Task])
 
